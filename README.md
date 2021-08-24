@@ -1,5 +1,6 @@
-# Open Source Template
+# SwiftttCamera
 
+A description of this package.
 
 ## License
 
