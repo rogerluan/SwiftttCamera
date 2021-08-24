@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- https://help.apple.com/xcode/mac/9.0/index.html?localePath=en.lproj#/dev91a7a31fc -->
+<plist version="1.0">
+<dict>
+    <key>FILEHEADER</key>
+    <string> ___COPYRIGHT___</string>
+</dict>
+</plist>
