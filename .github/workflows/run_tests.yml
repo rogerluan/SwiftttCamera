@@ -1,0 +1,17 @@
+name: Run Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: fwal/setup-swift@v1
+    - uses: actions/checkout@v2
+    - name: Run tests
+      run: swift test --enable-code-coverage
