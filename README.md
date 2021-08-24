@@ -1,7 +1,5 @@
-# SwiftttCamera
-
 <div align="center">
-  <img width=100 src=".github/docs/logo.png">
+  <img width=250 src=".github/docs/logo.png">
   <h1>SwiftttCamera</h1>
   <p><strong>Swifttty and easy camera framework for iOS.</strong></p>
 
@@ -16,7 +14,7 @@
     <img src="https://img.shields.io/github/v/release/rogerluan/SwiftttCamera?sort=semver" alt="Latest release" />
   </a>
 
-  <a href="https://codeclimate.com/github/rogerluan/SwiftttCamera/maintainability"><img src="https://api.codeclimate.com/v1/badges/e78e3c33607e8575b1e8/maintainability" /></a>
+  <a href="https://codeclimate.com/github/rogerluan/SwiftttCamera/maintainability"><img src="https://api.codeclimate.com/v1/badges/494f54ae866f5e38a66e/maintainability" /></a>
 
   <a href="https://github.com/rogerluan/SwiftttCamera/issues">
     <img alt="Issues" src="https://img.shields.io/github/issues/rogerluan/SwiftttCamera?color=#86D492" />
@@ -26,11 +24,11 @@
   </a>
 
   <p align="center">
-    <a href="#preview">View Demo</a>
+    <a href="#demo">View Demo</a>
     ·
-    <a href="/issues/new/choose">Report Bug</a>
+    <a href="https://github.com/rogerluan/SwiftttCamera/issues/new/choose">Report Bug</a>
     ·
-    <a href="/issues/new/choose">Request Feature</a>
+    <a href="https://github.com/rogerluan/SwiftttCamera/issues/new/choose">Request Feature</a>
   </p>
 </div>
 
@@ -128,7 +126,7 @@ Set the camera's flash mode:
 camera.cameraFlashMode = shouldEnable ? .on : .off
 ```
 
-Set the camera's torch mode.
+Set the camera's torch mode:
 
 ```swift
 let shouldEnable = enabled && camera.isTorchAvailableForCurrentDevice
