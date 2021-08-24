@@ -32,7 +32,9 @@
   </p>
 </div>
 
-`SwiftttCamera` is a wrapper around `AVFoundation` that allows you to build your own powerful custom camera app without all the headaches of using `AVFoundation` directly. It is strongly based off of [FastttCamera](https://github.com/IFTTT/FastttCamera), but since that project hasn't been maintained since 2016, this project aims to give life back to that awesome framework, with the same perks, but using more modern APIs, and limiting supported SDKs to iOS 13+ only.
+`SwiftttCamera` is a wrapper around `AVFoundation` that allows you to build your own powerful custom camera app without all the headaches of using `AVFoundation` directly.
+
+## Why use this?
 
 #### Major headaches that `SwiftttCamera` automatically handles for you:
 
@@ -157,7 +159,7 @@ func cameraController(_ cameraController: CameraProtocol, didFinishNormalizingCa
 
 # References
 
-This project is strongly based off of [FastttCamera](https://github.com/IFTTT/FastttCamera). Huge thanks [Laura Skelton](https://github.com/lauraskelton), the creator of `FastttCamera` for creating such awesome project. Without her work, this project definitely wouldn't be possible. 💪
+This project is strongly based off of [FastttCamera](https://github.com/IFTTT/FastttCamera), but since that project hasn't been maintained since 2016, this project aims to give life back to that awesome framework, with the same perks, but using more modern APIs, and limiting supported SDKs to iOS 13+ only. Huge thanks [Laura Skelton](https://github.com/lauraskelton), the creator of `FastttCamera` for creating such awesome project. Without her work, this project definitely wouldn't be possible. 💪
 
 # Contributions
 
