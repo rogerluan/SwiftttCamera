@@ -13,5 +13,9 @@ jobs:
     steps:
     - uses: fwal/setup-swift@v1
     - uses: actions/checkout@v2
+    # Needed because this project has references to iOS-specific frameworks
+    # such as UIKit, AVFoundation and CoreMotion.
+    - name: Generate xcodeproj
+      run: swift package generate-xcodeproj
     - name: Run tests
-      run: swift test --enable-code-coverage
+      run: xcodebuild test -destination 'name=iPhone 12 Pro' -scheme 'SwiftttCamera-Package'
