@@ -4,6 +4,7 @@ import Combine
 import UIKit
 
 /// Hold a captured image object, used in CameraDelegate promises as the image is being cropped, scaled, and normalized.
+@objc
 public final class CapturedImage {
     private lazy var serialQueue = DispatchQueue(label: String(describing: self), qos: .userInitiated)
 

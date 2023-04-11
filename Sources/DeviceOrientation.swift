@@ -4,6 +4,7 @@ import CoreMotion
 import UIKit
 
 /// Struct used to manage the device's actual orientation.
+@objc
 final class DeviceOrientation {
     private lazy var motionManager: CMMotionManager? = {
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()

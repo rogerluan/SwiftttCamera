@@ -2,7 +2,7 @@
 
 import Foundation
 import UIKit
-
+@objc
 protocol ZoomDelegate : AnyObject {
     /// Called when a pinch gesture was detected, letting the delegate know to handle zooming the camera to the given degree.
     /// - Parameter zoomScale: How much to zoom, a number starting at 1.f and growing larger.
@@ -12,6 +12,7 @@ protocol ZoomDelegate : AnyObject {
 
 /// Handles zooming. If you want to manually handle zooming, set handlesZoom = false on your SwiftttCamera instance and use its `focusAtPoint` method to manually set the zoom.
 @dynamicCallable
+@objc
 final class Zoom {
     /// Delegate of the Zoom instance.
     weak var delegate: ZoomDelegate?

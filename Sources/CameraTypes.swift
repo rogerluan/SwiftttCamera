@@ -3,6 +3,7 @@
 import AVFoundation
 
 /// Constants indicating the physical position of an AVCaptureDevice's hardware on the system.
+@objc
 public enum CameraDevice {
     /// Indicates that the device is physically located on the front of the system hardware.
     case front

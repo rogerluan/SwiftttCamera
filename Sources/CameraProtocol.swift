@@ -1,7 +1,7 @@
 // Copyright © 2021 Roger Oba. All rights reserved.
 
 import UIKit
-
+@objc
 public protocol CameraProtocol : AnyObject {
     /// The delegate of the SwiftttCamera instance.
     var delegate: CameraDelegate? { get set }

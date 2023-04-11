@@ -1,7 +1,7 @@
 // Copyright © 2021 Roger Oba. All rights reserved.
 
 import UIKit
-
+@objc
 protocol FocusDelegate : AnyObject {
     /// Called when a tap gesture was detected, letting the delegate know to handle focusing the camera at the given point.
     /// - Parameter touchPoint: The point in the view where a tap was detected.

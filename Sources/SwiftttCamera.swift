@@ -6,6 +6,7 @@ import UIKit
 
 /// Use to create a standard SwiftttCamera.
 /// - Note: The full interface for the SwiftttCamera can be found in CameraProtocol.
+@objc
 public class SwiftttCamera : UIViewController, CameraProtocol {
     private var deviceOrientation: DeviceOrientation!
     private var focus: Focus!

@@ -1,7 +1,7 @@
 // Copyright © 2021 Roger Oba. All rights reserved.
 
 import Foundation
-
+@objc
 public protocol CameraDelegate : AnyObject {
     /// Called when the camera controller has obtained the raw data containing the image and metadata.
     /// - Parameters:
