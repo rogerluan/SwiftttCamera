@@ -142,25 +142,51 @@ extension SwiftttCamera {
     private func handleDeviceAuthorization(_ authorized: Bool) {
         if authorized {
             session = AVCaptureSession()
-            session.setSessionPresetIfPossible(.photo)
-            let device: AVCaptureDevice? = AVCaptureDevice.captureDevice(from: cameraDevice) ?? AVCaptureDevice.default(for: .video) // It's nil only in Simulator
+            session.beginConfiguration()  // Begin configuration to setup session
+            session.sessionPreset = .photo  // Set the session preset
+
+            // Use a discovery session to find and prioritize the triple camera
+            let discoverySession = AVCaptureDevice.DiscoverySession(
+                deviceTypes: [
+                    .builtInTripleCamera,
+                    .builtInDualWideCamera,
+                    .builtInDualCamera,
+                    .builtInUltraWideCamera,
+                    .builtInWideAngleCamera,
+                    .builtInTelephotoCamera
+                ],
+                mediaType: .video,
+                position: .back
+            )
+
+            guard let device = discoverySession.devices.first else {
+                print("No compatible device found")
+                session.commitConfiguration()
+                return
+            }
+
             do {
-                try device?.lockForConfiguration()
-                device?.setFocusModeIfSupported(.continuousAutoFocus)
-                device?.setExposureModeIfSupported(.continuousAutoExposure)
-                device?.unlockForConfiguration()
-                #if !targetEnvironment(simulator)
-                let deviceInput: AVCaptureDeviceInput = try  AVCaptureDeviceInput(device: device!)
-                session.addInputIfPossible(deviceInput)
-                switch device!.position {
-                case .back: cameraDevice = .rear
-                case .front: cameraDevice = .front
-                default: break
+                let deviceInput = try AVCaptureDeviceInput(device: device)
+
+                if session.canAddInput(deviceInput) {
+                    session.addInput(deviceInput)
                 }
-                #endif
+
+                if device.isFocusModeSupported(.continuousAutoFocus) {
+                    try device.lockForConfiguration()
+                    device.focusMode = .continuousAutoFocus
+                    device.unlockForConfiguration()
+                }
+
                 photoOutput = AVCapturePhotoOutput()
-                session.addOutputIfPossible(photoOutput)
+                if session.canAddOutput(photoOutput) {
+                    session.addOutput(photoOutput)
+                }
+
+                session.commitConfiguration()  // Commit the session configuration
+
                 deviceOrientation = DeviceOrientation()
+
                 if isViewLoaded && view.window != nil {
                     startRunning()
                     insertPreviewLayer()
@@ -168,12 +194,14 @@ extension SwiftttCamera {
                     resetZoom()
                 }
             } catch {
-                dump(error)
+                print("Error configuring camera device: \(error)")
+                session.commitConfiguration()
             }
         } else {
             delegate?.userDeniedCameraPermissions(forCameraController: self)
         }
     }
+
 
     private func teardownCaptureSession() {
         guard session != nil else { return }
